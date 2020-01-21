@@ -73,8 +73,7 @@ public class WarehouseEndpoint {
     @Consumes(MediaType.APPLICATION_JSON)
     @Transactional
     public Response delete ( @PathParam("id") long id){
-        Warehouse warehouse = repository.findById(id);
-        em.remove(warehouse);
+        repository.delete(id);
         return Response.noContent().build();
     }
 }

@@ -73,8 +73,7 @@ public class PurchaseEndpoint {
     @Consumes(MediaType.APPLICATION_JSON)
     @Transactional
     public Response delete ( @PathParam("id") long id){
-            Purchase purchase = repository.findById(id);
-            em.remove(purchase);
+        repository.delete(id);
         return Response.noContent().build();
     }
 }

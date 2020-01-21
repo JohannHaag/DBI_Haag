@@ -34,7 +34,8 @@ public class SaleRepository {
     }
 
     public void delete(long id) {
-        em.remove(id);
-
+        em.remove(findById(id));
     }
+
+
 }

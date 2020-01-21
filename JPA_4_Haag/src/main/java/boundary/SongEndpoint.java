@@ -72,8 +72,7 @@ public class SongEndpoint {
     @Consumes(MediaType.APPLICATION_JSON)
     @Transactional
     public Response delete ( @PathParam("id") long id){
-        Song song = repository.findById(id);
-        em.remove(song);
+        repository.delete(id);
         return Response.noContent().build();
     }
 }

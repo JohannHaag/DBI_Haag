@@ -75,8 +75,7 @@ public class AlbumEndpoint {
     @Consumes(MediaType.APPLICATION_JSON)
     @Transactional
     public Response delete ( @PathParam("id") long id){
-        Album album = repository.findById(id);
-        em.remove(album);
+        repository.delete(id);
         return Response.noContent().build();
     }
 }

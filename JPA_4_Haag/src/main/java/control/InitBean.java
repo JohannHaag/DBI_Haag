@@ -5,6 +5,7 @@ import entity.*;
 import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.context.Initialized;
 import javax.enterprise.event.Observes;
+import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
@@ -18,6 +19,20 @@ public class InitBean {
     @PersistenceContext
     EntityManager em;
 
+    @Inject
+    AlbumRepository albumRepository;
+
+    @Inject
+    PurchaseRepository purchaseRepository;
+
+    @Inject
+    SaleRepository saleRepository;
+
+    @Inject
+    SongRepository songRepository;
+
+    @Inject
+    WarehouseRepository warehouseRepository;
 
     private void init(@Observes @Initialized(ApplicationScoped.class) Object init) {
         initDb();
@@ -87,30 +102,30 @@ public class InitBean {
         genre1.getSongs().add(song1);
         genre2.getSongs().add(song2);
 
-        em.persist(warehouse);
-        em.persist(warehouse1);
-        em.persist(warehouse2);
+        warehouseRepository.save(warehouse);
+        warehouseRepository.save(warehouse1);
+        warehouseRepository.save(warehouse2);
         em.persist(supplier);
         em.persist(supplier1);
         em.persist(supplier2);
-        em.persist(song);
-        em.persist(song1);
-        em.persist(song2);
-        em.persist(sale);
-        em.persist(sale1);
-        em.persist(sale2);
-        em.persist(purchase);
-        em.persist(purchase1);
-        em.persist(purchase2);
+        songRepository.save(song);
+        songRepository.save(song1);
+        songRepository.save(song2);
+        saleRepository.save(sale);
+        saleRepository.save(sale1);
+        saleRepository.save(sale2);
+        purchaseRepository.save(purchase);
+        purchaseRepository.save(purchase1);
+        purchaseRepository.save(purchase2);
         em.persist(customer);
         em.persist(customer1);
         em.persist(customer2);
         em.persist(componist);
         em.persist(componist1);
         em.persist(componist2);
-        em.persist(album);
-        em.persist(album1);
-        em.persist(album2);
+        albumRepository.save(album);
+        albumRepository.save(album1);
+        albumRepository.save(album2);
         em.persist(genre);
         em.persist(genre1);
         em.persist(genre2);

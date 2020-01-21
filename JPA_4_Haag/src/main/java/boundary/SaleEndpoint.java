@@ -76,8 +76,7 @@ public class SaleEndpoint {
     @Consumes(MediaType.APPLICATION_JSON)
     @Transactional
     public Response delete ( @PathParam("id") long id){
-        Sale sale = repository.findById(id);
-        em.remove(sale);
+        repository.delete(id);
         return Response.noContent().build();
     }
 }
