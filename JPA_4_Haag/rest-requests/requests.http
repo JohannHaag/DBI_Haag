@@ -1,0 +1,149 @@
+GET http://localhost:8080/school/api/album
+
+### korrekte Anfrage
+
+POST http://localhost:8080/school/api/album
+Content-Type: application/json
+
+{
+  "title": "Blingbl",
+  "unitprice": 83,
+  "purchase_id": 1 ,
+  "sale_id": 2 ,
+  "warehouse_id": 3
+}
+
+### korrekte Anfrage
+
+PUT http://localhost:8080/school/api/album/4
+Content-Type: application/json
+
+{
+  "title": "Bling",
+  "unitprice": 82,
+  "purchase_id": 1 ,
+  "sale_id": 2 ,
+  "warehouse_id": 3
+}
+
+###
+
+DELETE http://localhost:8080/school/api/album/4
+###
+
+
+
+GET http://localhost:8080/school/api/song
+
+###
+POST http://localhost:8080/school/api/song
+Content-Type: application/json
+
+{
+  "name": "Alles Perfekt",
+  "length": "180",
+  "album_id": {"id": 1},
+  "componist_id": {"id": 2},
+  "genre_id": {"id": 3}
+}
+
+### korrekte Anfrage
+
+PUT http://localhost:8080/school/api/song/4
+Content-Type: application/json
+
+{
+  "abbr": "Perfekt",
+  "length": "170",
+  "album_id": {"id": 1},
+  "componist_id": {"id": 2},
+  "genre_id": {"id": 3}
+}
+
+###
+
+DELETE http://localhost:8080/school/api/song/4
+###
+
+
+
+GET http://localhost:8080/school/api/warehouse
+
+###
+POST http://localhost:8080/school/api/warehouse
+Content-Type: application/json
+
+{
+  "quantity": 700.00
+}
+
+### korrekte Anfrage
+
+PUT http://localhost:8080/school/api/warehouse/4
+Content-Type: application/json
+
+{
+  "quantity": 800.00
+}
+
+###
+
+DELETE http://localhost:8080/school/api/warehouse/4
+###
+
+
+GET http://localhost:8080/school/api/sale
+
+###
+
+POST http://localhost:8080/school/api/sale
+Content-Type: application/json
+
+{
+  "name": "Verkauf4",
+  "customer_id": {"id": 2}
+}
+
+###
+PUT http://localhost:8080/school/api/sale/4
+Content-Type: application/json
+
+{
+  "name": "Verkauf5",
+  "customer_id": {"id": 3}
+}
+
+###
+
+DELETE http://localhost:8080/school/api/sale/4
+
+###
+
+
+GET http://localhost:8080/school/api/purchase
+###
+
+POST http://localhost:8080/school/api/purchase
+Content-Type: application/json
+
+{
+  "name": "Einkauf_4",
+  "supplier_id": {"id": 1}
+}
+
+###
+
+PUT http://localhost:8080/school/api/purchase/4
+Content-Type: application/json
+
+{
+"name": "Einkauf_5",
+"supplier_id": {"id": 2}
+}
+
+###
+
+DELETE http://localhost:8080/school/api/purchase/4
+
+###
+
